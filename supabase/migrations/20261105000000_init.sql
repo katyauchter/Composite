@@ -31,10 +31,7 @@ create table public.nutrition_entries (
   protein_g numeric(6,1),
   carbs_g numeric(6,1),
   fat_g numeric(6,1),
-  fiber_g numeric(6,1),
-  sugar_g numeric(6,1),
-  sodium_mg numeric(7,1),
-  extra jsonb not null default '{}',  -- any other nutrients a source provides
+  extra jsonb not null default '{}',  -- source-specific details, e.g. parser confidence
   screenshot_id uuid,                 -- set when parsed from a screenshot
   external_id text,                   -- id in the source system, for de-duplication
   created_at timestamptz not null default now(),

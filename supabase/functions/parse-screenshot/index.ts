@@ -16,8 +16,7 @@ const MODEL = Deno.env.get('ANTHROPIC_MODEL') ?? 'claude-sonnet-5-5';
 const PROMPT = `This is a screenshot from a nutrition tracking app showing one day's intake.
 Extract the day's totals. Reply with JSON only, no prose, in exactly this shape:
 {"calories": number|null, "protein_g": number|null, "carbs_g": number|null, "fat_g": number|null,
- "fiber_g": number|null, "sugar_g": number|null, "sodium_mg": number|null,
- "date_shown": "YYYY-MM-DD"|null, "other_nutrients": {"name": number}, "confidence": "high"|"medium"|"low"}
+ "date_shown": "YYYY-MM-DD"|null, "confidence": "high"|"medium"|"low"}
 Use the amounts actually eaten, not targets or remaining amounts. Labels may be in any language
 (e.g. Spanish: Proteína, Carbohidratos, Grasas). Use null for anything not shown.`;
 
@@ -113,10 +112,7 @@ Deno.serve(async (req) => {
       protein_g: num('protein_g'),
       carbs_g: num('carbs_g'),
       fat_g: num('fat_g'),
-      fiber_g: num('fiber_g'),
-      sugar_g: num('sugar_g'),
-      sodium_mg: num('sodium_mg'),
-      extra: { other_nutrients: parsed.other_nutrients ?? {}, confidence: parsed.confidence ?? null },
+      extra: { confidence: parsed.confidence ?? null, date_shown: parsed.date_shown ?? null },
       screenshot_id: shot.id,
       external_id: `screenshot:${shot.id}`,
     },

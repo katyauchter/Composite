@@ -28,9 +28,8 @@ One row per logged entry. Unique on `(user_id, source, external_id)`.
 | `source` | data_source | default `manual` |
 | `label` | text | e.g. `Daily total`, `Manual entry` |
 | `calories` | numeric(7,1) | kcal |
-| `protein_g`, `carbs_g`, `fat_g`, `fiber_g`, `sugar_g` | numeric(6,1) | grams |
-| `sodium_mg` | numeric(7,1) | milligrams |
-| `extra` | jsonb | other nutrients, parser confidence |
+| `protein_g`, `carbs_g`, `fat_g` | numeric(6,1) | grams |
+| `extra` | jsonb | source-specific details, e.g. parser confidence |
 | `screenshot_id` | uuid | → `screenshots.id` |
 | `external_id` | text | screenshot entries: `screenshot:<screenshots.id>` |
 
