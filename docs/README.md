@@ -18,6 +18,7 @@ Organized with [Diátaxis](https://diataxis.fr/). Each page is exactly one type;
 - [Project structure and scripts](reference/project-structure.md)
 
 ## Explanation: understanding the design
+- [Product scope and the modular report](explanation/product-scope.md)
 - [Architecture and stack choices](explanation/architecture.md)
 - [How syncing avoids duplicates](explanation/sync-and-deduplication.md)
 - [Privacy and health data](explanation/privacy.md)

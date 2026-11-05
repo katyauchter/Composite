@@ -18,6 +18,9 @@
 | `supabase/functions/parse-screenshot/` | Screenshot → nutrition entry |
 | `app.json` | App name, bundle ID `com.katyauchter.composite`, plugins and permissions |
 | `eas.json` | Build profiles: `development`, `preview`, `production` |
+| `scripts/check-migrations.mjs` | Migration test used by `npm run check:db` and CI |
+| `.github/workflows/ci.yml` | CI: typecheck and migration test on every push and pull request |
+| `AGENTS.md` / `CLAUDE.md` | Instructions for AI coding assistants |
 
 ## npm scripts
 
@@ -27,3 +30,4 @@
 | `npm run ios` | `expo start --ios` |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run lint` | `expo lint` |
+| `npm run check:db` | Applies all migrations to an in-memory Postgres and runs sanity checks |
